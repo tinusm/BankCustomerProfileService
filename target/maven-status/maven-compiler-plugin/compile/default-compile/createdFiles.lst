@@ -1,0 +1,4 @@
+com\bank\profile\Application.class
+com\bank\profile\Profile.class
+com\bank\profile\ProfileRepository.class
+com\bank\profile\ProfileController.class
