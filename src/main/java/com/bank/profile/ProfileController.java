@@ -26,6 +26,7 @@ public class ProfileController {
 		return profileRepository.findAll();
 	}
 	
+	
 	@GetMapping(path="/all/{id}")
 	public @ResponseBody Profile getProfile(@PathVariable Long id){
 		return profileRepository.findOne(id);
