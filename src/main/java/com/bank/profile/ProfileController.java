@@ -28,13 +28,13 @@ public class ProfileController {
 				// the data
 
 	private ProfileRepository profileRepository;
-
+	@CrossOrigin
 	@GetMapping(path = "/all")
 	public @ResponseBody Iterable<Profile> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return profileRepository.findAll();
 	}
-
+	@CrossOrigin
 	@GetMapping(path = "/all/{id}")
 	public @ResponseBody Profile getProfile(@PathVariable Long id) {
 		return profileRepository.findOne(id);
@@ -42,30 +42,6 @@ public class ProfileController {
 
 	@PutMapping("/updateprofile/{id}/{emailid}/{address}/{phonenumber}")
 	@CrossOrigin	
-	/*public ResponseEntity<Profile> updateProfile(@PathVariable(value = "id") Long id,
-			@Valid @RequestBody Profile profileDetails) {
-		Profile profile = profileRepository.findOne(id);
-		if (profile == null) {
-			return ResponseEntity.notFound().build();
-		}
-		if (profileDetails.getAccountid() != null) {
-			profile.setAccountid(profileDetails.getAccountid());
-		}
-		if (profileDetails.getAddress() != null) {
-			profile.setAddress(profileDetails.getAddress());
-		}
-		if (profileDetails.getEmailid() != null) {
-			profile.setEmailid(profileDetails.getEmailid());
-		}
-		if (profileDetails.getPhonenumber() != null) {
-			profile.setPhonenumber(profileDetails.getPhonenumber());
-		}
-
-		Profile updatedProfile = profileRepository.save(profile);
-		return ResponseEntity.ok(updatedProfile);
-
-	}*/
-	
 	public ResponseEntity<Profile> updateProfile(@PathVariable(value = "id") Long id,
 			@PathVariable(value = "emailid") String emailid,@PathVariable(value = "address") String address,@PathVariable(value = "phonenumber") Long phonenumber) {
 		
